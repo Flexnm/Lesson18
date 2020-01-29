@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="beans.Veterinarian" scope="singleton" id="myVet">
+		<property name="name" value="Roni" />
+		<property name="address" value="29 Wall and Tower st." />
+		<property name="hourlyRate" value="450.5" />
+	</bean>
+
+	<bean class="beans.Pet" scope="prototype" id="myPet">
+		<constructor-arg name="name" value="Garry" />
+		<constructor-arg name="type" value="cat" />
+		<constructor-arg name="age" value="10" />
+		<property name="myVet" ref="myVet" />
+	</bean>
+
+	<bean class="beans.Pet" scope="prototype" id="myPet2">
+		<constructor-arg name="name" value="Bob" />
+		<constructor-arg name="type" value="dog" />
+		<constructor-arg name="age" value="6" />
+	</bean>
+
+
+</beans>
+
+
+<!-- <?xml version="1.0" encoding="UTF-8"?> <beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> </beans> -->
